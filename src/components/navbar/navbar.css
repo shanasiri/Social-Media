@@ -1,0 +1,99 @@
+.navbar-container{
+    height: 80px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-left{
+    flex: 3;
+}
+
+.logo{
+    font-size: 35px;
+    margin-left: 40px;
+    font-weight: 700;
+}
+
+.navbar-center{
+    flex: 5;
+}
+
+.searchBar{
+    width: 100%;
+    height: 40px;
+    background-color: #EFEDED;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.search-icon{
+    margin-left: 15px;
+    color: #B6B6B6;
+}
+
+.search-input{
+    margin-left: 10px;
+    border: none;
+    width: 80%;
+    background-color: #EFEDED;
+}
+
+.search-input:focus{
+    outline: none;
+}
+
+.navbar-right{
+    flex: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar-link{
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.navbar-icons{
+    display: flex;
+}
+
+.navbar-icon{
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.noti-icon, .msg-icon, .per-icon{
+    font-size: 35px !important;
+}
+
+.navbar-icon-badge{
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.navbar-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
