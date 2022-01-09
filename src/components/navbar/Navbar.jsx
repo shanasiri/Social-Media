@@ -1,12 +1,17 @@
 import React from 'react'
 import './navbar.css'
 import {Search, Notifications, Message, Person} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
     return (
         <div className='navbar-container'>
             <div className='navbar-left'>
-                <span className='logo'>GEt It</span>
+                <Link to="/" style={{textDecoration:"none", color:"black"}}>
+                    <span className='logo'>GEt It</span>
+                </Link> 
             </div>
 
             <div className='navbar-center'>
@@ -38,7 +43,7 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <img className='navbar-img' src='./images/user/1.jpg' alt=''></img>
+                <img className='navbar-img' src={`${PF}user/1.jpg`} alt=''></img>
             </div>
         </div>
     )

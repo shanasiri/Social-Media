@@ -1,25 +1,25 @@
 export const Users = [
     {
         id : 1,
-        profilePicture : './images/user/1.jpg',
+        profilePicture : 'user/1.jpg',
         username : 'Shanaka Asiri',
     },
 
     {
         id : 2,
-        profilePicture : './images/user/2.jpg',
+        profilePicture : 'user/2.jpg',
         username : 'Nilupul Manodya',
     },
 
     {
         id : 3,
-        profilePicture : './images/user/3.jpg',
+        profilePicture : 'user/3.jpg',
         username : 'Randika Chathuranga',
     },
 
     {
         id : 4,
-        profilePicture : './images/user/4.jpg',
+        profilePicture : 'user/4.jpg',
         username : 'Keshan Sankalpa',
     }
 ];
@@ -28,7 +28,7 @@ export const Posts = [
     {
         id : 1,
         desc : 'Caption one....',
-        photo : './images/post/1.jpg',
+        photo : 'post/1.jpg',
         date : '5 min ago',
         userId : 1,
         like: 2,
@@ -37,7 +37,7 @@ export const Posts = [
 
     {
         id : 2,
-        photo : './images/post/2.jpg',
+        photo : 'post/2.jpg',
         date : '15 min ago',
         userId : 2,
         like: 12,

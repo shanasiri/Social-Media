@@ -7,6 +7,8 @@ import Rigthbar from '../../components/rightbar/Rigthbar'
 
 
 export default function Profile() {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
     return (
         <div>
             <>
@@ -17,8 +19,8 @@ export default function Profile() {
                     <div className='profile-right'>
                         <div className='profile-rightTop'>
                             <div className="profile-cover">
-                                <img className='profile-coverImg' src="./images/post/1.jpg" alt="" />
-                                <img className='profile-userImg' src="./images/user/1.jpg" alt="" />
+                                <img className='profile-coverImg' src={`${PF}post/1.jpg`} alt="" />
+                                <img className='profile-userImg' src={`${PF}user/1.jpg`} alt="" />
                             </div>
 
                             <div className="profile-info">
