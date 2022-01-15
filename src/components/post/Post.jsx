@@ -1,15 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './post.css'
 import { Favorite, MoreVert, Notes } from '@mui/icons-material';
-import { Users } from '../../dummyData'
+import axios from "axios";
+import { format } from "timeago.js";
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function Post({post}) {
-    const [like, setLike] = useState(post.like);
+    const [like, setLike] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(false);
+    const [user, setUser] = useState({});
 
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
+    const {user:currentUser} = useContext(AuthContext);
+
+    useEffect(() => {
+        setIsLiked(post.likes.includes(currentUser._id));
+    }, [currentUser._id, post.likes]);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const res = await axios.get(`/users?userId=${post.userId}`);
+            setUser(res.data);
+        }
+        fetchUser();
+    }, [post.userId]);
+
     const likeHandler = () => {
+        try{
+            axios.put("/posts/" + post._id + "/like", {userId: currentUser._id});
+        }
+        catch(err){}
+
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
     }
@@ -19,9 +42,12 @@ export default function Post({post}) {
             <div className='post-wrapper'>
                 <div className='post-top'>
                     <div className='post-topLeft'>
-                        <img className='post-profileImg' src={Users.filter((u) => u.id === post.userId)[0].profilePicture} alt=''></img>
-                        <span className='post-username'>{Users.filter((u) => u.id === post.userId)[0].username}</span>
-                        <span className='post-date'>{post.date}</span>
+                        <Link to={`profile/${user.username}`}>
+                            <img className='post-profileImg' src={user.profilePicture ? PF + user.profilePicture : PF+"user/no-avatar.png"} alt=''></img>
+                        </Link>
+                        
+                        <span className='post-username'>{user.username}</span>
+                        <span className='post-date'>{format(post.createdAt)}</span>
                     </div>
 
                     <div className='post-topRight'>
@@ -31,7 +57,7 @@ export default function Post({post}) {
 
                 <div className="post-center">
                     <span className='post-text'>{post?.desc}</span>
-                    <img className='post-img' src={PF + post.photo} alt=''></img>
+                    <img className='post-img' src={PF+post.img} alt=''></img>
 
                 </div>
                 <div className="post-bottom">
