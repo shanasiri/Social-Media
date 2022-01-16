@@ -12,12 +12,12 @@ export const LoginFailed = (error) => ({
     payload : error,
 });
 
-/*export const Follow = (userId) => ({
+export const Follow = (userId) => ({
     type : "FOLLOW",
     payload : userId,
 });
 
-export const unfollow = (userId) => ({
+export const Unfollow = (userId) => ({
     type : "UNFOLLOW",
     payload : userId,
-});*/
+});

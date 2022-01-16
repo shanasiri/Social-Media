@@ -11,17 +11,17 @@ import { AuthContext } from '../../context/AuthContext';
 export default function Rigthbar({user}) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
-    //const [friends, setFriends] = useState([]);
+    const [friends, setFriends] = useState([]);
 
-    //const {user:currentUser, dispatch} = useContext(AuthContext);
+    const {user:currentUser, dispatch} = useContext(AuthContext);
 
-    //const [followed, setFollowed] = useState(currentUser.followings.includes(user?.id));
+    const [followed, setFollowed] = useState(currentUser.followings.includes(user?.id));
 
     /*useEffect(() => {
         setFollowed(currentUser.followings.includes(user?.id));
     }, [currentUser, user.id]);*/
 
-    /*useEffect(() => {
+    useEffect(() => {
         const getFriends = async() => {
             try{
                 const friendList = await axios.get("/users/friends/" + user._id);
@@ -32,9 +32,9 @@ export default function Rigthbar({user}) {
             }
         };
         getFriends();
-    }, [user._id]);*/
+    }, [user]);
 
-    /*const handleClick = async () => {
+    const handleClick = async () => {
         try{
             if(followed){
                 await axios.put("/users/" + user._id + "/unfollow", {
@@ -53,7 +53,7 @@ export default function Rigthbar({user}) {
             console.log(err);
         }
         setFollowed(!followed);
-    }*/
+    }
 
     const HomeRightbar = () => {
         return (
@@ -78,7 +78,12 @@ export default function Rigthbar({user}) {
     const ProfileRightbar = () => {
         return (
             <>
-                
+                {user.username !== currentUser.username && (
+                    <button className='rightbar-followButton' onClick={handleClick}>
+                        {followed ? "Unfollow" : "Follow"}
+                        {followed ? <Remove></Remove> : <Add></Add>}
+                    </button>
+                )}
 
                 <div className='user-info'>
                     <h4 className='rightbar-title'>User Information</h4>
@@ -105,15 +110,15 @@ export default function Rigthbar({user}) {
                 <h4 className='rightbar-title'>User Friends</h4>
 
                 <div className='rightbar-followings'>
-                    
-                        
+                    {friends.map(friend => (
+                        <Link to={"/profile/" + friend.username} style={{textDecoration: "none", color: "black"}}>
                             <div className='rightbar-following'>
-                                <img src={ `${PF}user/1.jpg`} alt="" className='rightbar-followingImg' />.jpg.jpg
-                                <span className='rightbar-followingName'>Shanaka</span>
+                                <img src={friend.profilePicture ? PF + friend.profilePicture : PF + "user/no-avatar.png"} alt="" className='rightbar-followingImg' />
+                                <span className='rightbar-followingName'>{friend.username}</span>
                             </div>
+                        </Link>
                         
-                    
-                    
+                    ))}        
                 </div> 
             </>
             

@@ -21,7 +21,7 @@ const AuthReducer = (state, action) => {
                 error : action.payload,
             };
 
-        /*case "FOLLOW":
+        case "FOLLOW":
             return {
                 ...state,
                 user: {
@@ -39,7 +39,7 @@ const AuthReducer = (state, action) => {
                         (following) => following !== action.payload,
                     ),
                 },
-            };*/
+            };
 
         default:
             return state;

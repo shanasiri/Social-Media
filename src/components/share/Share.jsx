@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './share.css'
-import {Label, LocationOn, PermMedia, EmojiEmotions } from '@mui/icons-material';
+import {Label, LocationOn, PermMedia, EmojiEmotions, Cancel } from '@mui/icons-material';
 import { AuthContext } from "../../context/AuthContext";
 import { useRef } from 'react';
 import { useState } from 'react';
@@ -58,6 +58,13 @@ export default function Share() {
                 </div>
 
                 <hr className='share-hr'></hr>
+
+                {file && (
+                    <div className='shareImg-container'>
+                        <img className='share-img' src={URL.createObjectURL(file)} alt=''></img>
+                        <Cancel className='share-cancelImg' onClick={() => setFile(null)}></Cancel>
+                    </div>
+                )}
 
                 <form className='share-bottom' onSubmit={submitHandler}>
                     <div className='share-options'>
