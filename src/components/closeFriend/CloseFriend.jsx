@@ -11,5 +11,5 @@ export default function CloseFriend({user}) {
                 <span className='sidebar-friendName'>{user.username}</span>
             </li>
         </div>
-    )
+    );
 }

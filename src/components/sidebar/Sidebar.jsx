@@ -45,11 +45,11 @@ export default function Sidebar() {
 
             <div className='fav-friends'>
                 <ul className='sidebar-friendlist'>
-                    {Users.map(u => (
+                    {Users.map((u) => (
                         <CloseFriend key={u.id} user={u}></CloseFriend>
                     ))}
                 </ul>
             </div>
         </div>
-    )
+    );
 }

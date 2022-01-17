@@ -15,5 +15,5 @@ export default function Online({user}) {
                 <span className='rightbar-username'>{user.username}</span>
              </li>
         </div>
-    )
+    );
 }

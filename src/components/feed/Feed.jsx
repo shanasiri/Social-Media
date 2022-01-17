@@ -35,5 +35,5 @@ export default function Feed({username}) {
                 ))}         
             </div>
         </div>
-    )
+    );
 }

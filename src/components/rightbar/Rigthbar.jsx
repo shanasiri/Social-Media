@@ -37,23 +37,23 @@ export default function Rigthbar({user}) {
     const handleClick = async () => {
         try{
             if(followed){
-                await axios.put("/users/" + user._id + "/unfollow", {
+                await axios.put(`/users/${user._id}/unfollow`, {
                     userId : currentUser._id,
                 });
                 dispatch({type : "UNFOLLOW", payload : user._id});
             }
             else{
-                await axios.put("/users/" + user._id + "/follow", {
+                await axios.put(`/users/${user._id}/follow`, {
                     userId : currentUser._id,
                 });
                 dispatch({type : "FOLLOW", payload : user._id});
             }
+            setFollowed(!followed);
         }
         catch(err){
             console.log(err);
-        }
-        setFollowed(!followed);
-    }
+        }   
+    };
 
     const HomeRightbar = () => {
         return (
@@ -110,7 +110,7 @@ export default function Rigthbar({user}) {
                 <h4 className='rightbar-title'>User Friends</h4>
 
                 <div className='rightbar-followings'>
-                    {friends.map(friend => (
+                    {friends.map((friend) => (
                         <Link to={"/profile/" + friend.username} style={{textDecoration: "none", color: "black"}}>
                             <div className='rightbar-following'>
                                 <img src={friend.profilePicture ? PF + friend.profilePicture : PF + "user/no-avatar.png"} alt="" className='rightbar-followingImg' />

@@ -28,7 +28,7 @@ export default function Login() {
                     <form className="login-box" onSubmit={handleClick}>
                         <input type="email" required placeholder='Email' className='login-input' ref={email}></input>
                         <input type="password" required minLength="6" placeholder='Password' className='login-input' ref={password}></input>
-                        <button className='login-button' disabled={isFetching}>{isFetching ? <CircularProgress color="white" size="20px" />: "Log In"}</button>
+                        <button className='login-button' disabled={isFetching}>{isFetching ? (<CircularProgress color="white" size="20px" />) : "Log In"}</button>
                         <span className='login-forgot'>Forgot Password</span>
                         <button className='register-button'>Create a New Account</button>
                     </form>
