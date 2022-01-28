@@ -4,8 +4,11 @@ import Navbar from '../../components/navbar/Navbar'
 import Rigthbar from '../../components/rightbar/Rigthbar'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './home.css'
+//import { Posts } from '../../dummyData'
 
 export default function Home() {
+
+
     return (
         <>
             <Navbar></Navbar>

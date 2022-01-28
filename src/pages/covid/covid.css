@@ -1,0 +1,27 @@
+.covid{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.covid-left{
+    flex: 0.9;
+}
+
+.covid-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.covid-status{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width: 900px){
+    .covid{
+        flex-direction: column;
+    }
+}

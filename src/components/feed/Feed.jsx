@@ -4,12 +4,22 @@ import Share from '../share/Share'
 import './feed.css'
 //import { Posts } from '../../dummyData'
 import axios from "axios"
+import { io } from 'socket.io-client'
 import { AuthContext } from '../../context/AuthContext'
 
 export default function Feed({username}) {
     const [posts, setPosts] = useState([]);
+    const [socket, setSocket] = useState(null);
 
     const {user} = useContext(AuthContext);
+
+    useEffect(() => {
+        setSocket(io("ws://localhost:8900"));
+    }, []);
+
+    useEffect(() => {
+        socket?.emit("addUser", user._id)
+    }, [socket, user]);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -31,7 +41,7 @@ export default function Feed({username}) {
                 {(!username || username === user.username) &&   <Share></Share>}
 
                 {posts.map((p) => (
-                    <Post key={p._id} post={p}></Post>
+                    <Post key={p._id} post={p} socket={socket} user={user}></Post>
                 ))}         
             </div>
         </div>

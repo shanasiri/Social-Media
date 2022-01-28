@@ -3,6 +3,7 @@ import './sidebar.css'
 import {Home, Message, Notifications, WbSunny, Work, Coronavirus} from '@mui/icons-material'
 import { Users } from '../../dummyData'
 import CloseFriend from '../closeFriend/CloseFriend'
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
     return (
@@ -14,10 +15,12 @@ export default function Sidebar() {
                         <span className='item-text'>Home</span>
                     </li>
 
-                    <li className='list-item'>
-                        <Message className='sidebar-icon'></Message>
-                        <span className='item-text'>Chats</span>
-                    </li>
+                    <Link to="/messenger" style={{textDecoration:"none", color:"black"}}>
+                        <li className='list-item'>
+                            <Message className='sidebar-icon'></Message>
+                            <span className='item-text'>Chats</span>
+                        </li>
+                    </Link>
 
                     <li className='list-item'>
                         <Notifications className='sidebar-icon'></Notifications>
@@ -34,10 +37,14 @@ export default function Sidebar() {
                         <span className='item-text'>Weather</span>
                     </li>
 
-                    <li className='list-item'>
-                        <Coronavirus className='sidebar-icon'></Coronavirus>
-                        <span className='item-text'>Covid-19</span>
-                    </li>
+                    <Link to="/covid" style={{textDecoration:"none", color:"black"}}>
+                        <li className='list-item'>
+                            <Coronavirus className='sidebar-icon'></Coronavirus>
+                            <span className='item-text'>Covid-19</span>
+                        </li>
+                    </Link>
+
+                    
                 </ul>
             </div>
 

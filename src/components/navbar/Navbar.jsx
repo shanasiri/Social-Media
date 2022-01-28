@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import './navbar.css'
 import {Search, Notifications, Message, Person} from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext'
 
-export default function Navbar() {
+export default function Navbar({socket}) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
     const {user} = useContext(AuthContext);

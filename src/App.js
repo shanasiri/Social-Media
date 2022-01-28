@@ -11,10 +11,12 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import Covid from "./pages/covid/Covid";
+
 
 function App() {
   const {user} = useContext(AuthContext);
-   
+  
   return (
     <Router>
       <Routes>
@@ -22,6 +24,7 @@ function App() {
         <Route path="/login" element={user ? <Navigate to="/"/> : <Login/>}/>
         <Route path="/register" element={user ? <Navigate to="/"/> : <Register/>}/>
         <Route path="/messenger" element={!user ? <Navigate to="/"/> : <Messenger/>}/>
+        <Route path="/covid" element={<Covid/>}/>
         <Route path="/profile/:username" element={<Profile/>}/>
       </Routes>
     </Router>
