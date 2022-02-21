@@ -97,3 +97,12 @@
     object-fit: cover;
     cursor: pointer;
 }
+
+.logout{
+    font-weight: 500;
+    color: #901CAD;
+    padding: 10px;
+    border: 1px solid #901CAD;
+    border-radius: 10px;
+}
+

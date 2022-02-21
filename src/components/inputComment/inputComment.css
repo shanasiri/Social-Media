@@ -1,0 +1,27 @@
+.post-footer{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #e9ecef;
+}
+
+.comment_input{
+    display: flex;
+    align-items: center;
+}
+
+.comment_input input{
+    background-color: #e9ecef;
+    border: none;
+    outline: none;
+    flex: 1;
+    overflow: auto;
+}
+
+.comment_input .postBtn{
+    background-color: #e9ecef;
+    border: none;
+    outline: none;
+    color: blue;
+    font-weight: 600;
+    cursor: pointer;
+}

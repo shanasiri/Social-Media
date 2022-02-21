@@ -1,0 +1,8 @@
+.news-section{
+    position: absolute;
+    background-image: url("news.jpg");
+    flex: 9;
+    margin: 0;
+    height: 100vh;
+    box-sizing: border-box;
+}

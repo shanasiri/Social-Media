@@ -12,6 +12,7 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import Covid from "./pages/covid/Covid";
+import News from "./pages/news/News";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/register" element={user ? <Navigate to="/"/> : <Register/>}/>
         <Route path="/messenger" element={!user ? <Navigate to="/"/> : <Messenger/>}/>
         <Route path="/covid" element={<Covid/>}/>
+        <Route path="/news" element={<News/>}/>
         <Route path="/profile/:username" element={<Profile/>}/>
       </Routes>
     </Router>

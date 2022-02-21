@@ -1,6 +1,6 @@
 import React from 'react'
 import './sidebar.css'
-import {Home, Message, Notifications, WbSunny, Work, Coronavirus} from '@mui/icons-material'
+import {Home, Message, Notifications, WbSunny, Work, Coronavirus, Article} from '@mui/icons-material'
 import { Users } from '../../dummyData'
 import CloseFriend from '../closeFriend/CloseFriend'
 import { Link } from 'react-router-dom';
@@ -27,10 +27,13 @@ export default function Sidebar() {
                         <span className='item-text'>Notifications</span>
                     </li>
 
-                    <li className='list-item'>
-                        <Work className='sidebar-icon'></Work>
-                        <span className='item-text'>Jobs</span>
-                    </li>
+                    <Link to="/news" style={{textDecoration:"none", color:"black"}}>
+                        <li className='list-item'>
+                            <Article className='sidebar-icon'></Article>
+                            <span className='item-text'>News</span>
+                        </li>
+                    </Link>
+                    
 
                     <li className='list-item'>
                         <WbSunny className='sidebar-icon'></WbSunny>

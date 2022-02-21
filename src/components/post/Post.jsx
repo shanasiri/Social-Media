@@ -5,11 +5,14 @@ import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import Comments from '../comments/Comments';
+import InputComment from '../inputComment/InputComment';
 
 export default function Post({post, socket}) {
     const [like, setLike] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(false);
     const [user, setUser] = useState({});
+    const [comments, setComments] = useState([]);
 
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -47,6 +50,14 @@ export default function Post({post, socket}) {
         setIsLiked(!isLiked);
     }
 
+    useEffect(() => {
+        const fetchComments = async () => {
+            const res = await axios.get("comments/all/61c9825b060a76becd716936");
+            setComments(res.data);
+        }
+        fetchComments();
+    }, []);
+
     return (
         <div className='post'>
             <div className='post-wrapper'>
@@ -80,6 +91,18 @@ export default function Post({post, socket}) {
                         <span className='comment-text'>{post.comment} comments</span>
                     </div>
                 </div>
+
+                <div className='comment-section'>
+                    {comments.map((c) => (
+                        <Comments key={c.id} comment={c}/>
+                    ))}
+
+                    <div className='comment-input'>
+                        <InputComment></InputComment>
+
+                    </div>   
+                </div>
+
             </div>
         </div>
     )

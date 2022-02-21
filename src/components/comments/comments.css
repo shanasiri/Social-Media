@@ -1,0 +1,33 @@
+.comment{
+    padding: 5px;
+}
+
+.comment-body{
+    margin-bottom: 20px;
+}
+
+.comment-top{
+    display: flex;
+    align-items: center;
+}
+
+.comment-proImg{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-user{
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 10px;
+}
+
+.comment-date{
+    font-size: 12px;
+}
+
+.commentText{
+    margin-left: 35px;
+}
